@@ -1,0 +1,17 @@
+<div class="content">
+	<link rel="stylesheet" href="sign.css" type="text/css" />
+	<form action="sign.php"  method="post" onsubmit="return validatePassword(this);" name="dati">
+				<fieldset>
+				<h1>FORM PER L'INSERIMENTO DELLA NOTIZIA: COMPILA I SEGUENTI CAMPI</h1>
+					<p><label for="username">Codice identificativo: <input type="text" maxlength="20" size="18" name="codice identificativo" placeholder="" oninput="this.style.backgroundColor = 'white';" value="<?php echo $username?>" required /></label></p>
+					<p><label for="nome">Nome*: <input type="input" maxlength="50" size="18" name="nome" placeholder="Inserisci Il tuo nome"  required /></label></p>
+					<p><label for="cognome">Cognome*: <input type="input" maxlength="50" size="18" name="cognome" placeholder="Qui il tuo cognome"  required /></label></p>
+					<p><textarea name="notizia rows="50" cols="50" "> Inserisci qui la notizia: <input type="input" maxlength="10000"  name="notizia" placeholder="Inserisci qui l'informazione"  required /> </textarea></p>
+					<br>
+					<hr>
+					<br>
+					<input class="button button2" type="submit" name="register" value="INVIA!">					
+					<p class="obbligatorio">*i campi contrassegnati sono obbligatori</p>
+				</fieldset>
+			</form>
+</div>

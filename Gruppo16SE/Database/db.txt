@@ -1,0 +1,166 @@
+drop table if exists  Utente cascade;
+drop table if exists  documento cascade;
+drop table if exists  sede cascade;
+drop table if exists attivita cascade;
+drop table if exists procedura cascade;
+drop table if exists magazzino cascade;
+
+create table Utente (
+   EMAIL           VARCHAR(200)         not null,
+   RUOLO            VARCHAR(100)         not null,
+   CODICE_IDENTIFICATIVO CHAR(8)            not null,
+   PIN                 CHAR(5)              not null,
+   NOME	                VARCHAR(20)          null,
+   COGNOME				VARCHAR(20)          null,
+   primary key (CODICE_IDENTIFICATIVO)
+);
+
+create table documento (
+   CODICE               CHAR(20)             not null,
+   ID_UTENTE 			CHAR(8)				 not null,	
+   DOCUMENTO            BYTEA             	 null,
+   
+   constraint Protocollo primary key (CODICE),
+   foreign key (ID_UTENTE) references Utente(CODICE_IDENTIFICATIVO)
+);
+
+create table sede (
+	id_sede CHAR(8) not null,
+	città   VARCHAR(20) not null,
+	via     VARCHAR(100) not null,
+	cap     CHAR (5)	NOT NULL,
+	id_rep 	CHAR(8)   NOT NULL,
+	
+primary key (id_sede),
+   foreign key (id_rep) references Utente(CODICE_IDENTIFICATIVO)
+);
+
+create table attivita (
+	id_attivita varchar(8) not null,
+	descrizione varchar(120) not null,
+	data_inizio date		 null,
+	data_fine   date		 not null,
+	id_maint	char(8) 	 not null,
+	
+	primary key(id_attivita), 
+	foreign key (id_maint) references Utente(codice_identificativo)
+);
+
+create table procedura (
+	id_procedura varchar(8) not null,
+	tipo varchar(20) not null,
+	materiale varchar(50) not null,
+	quantita integer null,
+	id_repos char(8) not null,
+	
+	primary key(id_procedura),
+	foreign key(id_repos) references Utente(codice_identificativo)
+);
+
+create table magazzino (
+	
+	id				varchar(8)	not null,
+	quantita_tot 	integer 	not null,
+	cod_procedura 	char(8)	 	not null,
+    n_attivita 		integer    	not null,
+	
+	primary key(id),
+	foreign key(cod_procedura) references procedura(id_procedura)
+);
+	
+INSERT INTO Utente (EMAIL,RUOLO,CODICE_IDENTIFICATIVO,PIN,NOME,COGNOME) values
+('m.rossi@ctm.it','System Administrator','10102311','12344','Mario','Rossi'),
+('c.verdi@ctm.it','System Administrator','10102312','43215','Carlo','Verdi'),
+('r.croma@ctm.it','System Administrator','10657342','12311','Rocco','Croma'),
+('f.bravo@ctm.it','System Administrator','01234452','09876','Filippo','Bravo'),
+
+('g.punto@ctm.it','Repository Manager','67457913','43098','Giuseppe','Punto'),
+('a.panda@ctm.it','Repository Manager','54345654','43615','Antonio','Panda'),
+('a.totti@ctm.it','Repository Manager','12334512','43245','Alessandro','Totti'),
+('f.belviso@ctm.it','Repository Manager','03213555','09536','Franco','Belviso'),
+('s.belfiori','Repository Manager','21435223','12426','Sabrina','Belfiori'),
+('a.matarazzi@ctm.it','Repository Manager','45344545','12213','Alessia','Matarazzi'),
+
+('b.palladino@ctm.it','Planner','12332132','23431','Benedetta','Palladino'),
+('g.velico@ctm.it','Planner','65742355','43125','Giacomo','Velico'),
+('c.pino@ctm.it','Planner','43534343','45332','Carlo','Pino'),
+('p.coldi@ctm.it','Planner','34665432','00009','Paolo','Coldi'),
+('t.costa@ctm.it','Planner','4322345','12200','Tina','Costa'),
+('c.tota@ctm.it','Planner','00998877','54659','Carmine','Tota'),
+('c.porta@ctm.it','Planner','117733','12349','Carla','Porta'),
+('p.pintus@ctm.it','Planner','55554315','66665','Pino','Pintus'),
+('c.melino@ctm.it','Planner','34341234','56476','Carmen','Melino'),
+('f.quaglia@ctm.it','Planner','54879876','61265','Fabio','Quaglia'),
+('r.pala@ctm.it','Planner','23436587','11006','Rodrigo','Pala'),
+('c.marchi@ctm.it','Planner','34547587','34343','Claudio','Marchi'),
+('a.delpi@ctm.it','Planner','23428976','19988','Alandro','Delpi'),
+('g.chielli@ctm.it','Planner','09865848','77765','Giorgio','Chielli'),
+('c.rona@ctm.it','Planner','12343662','09800','Cristiana','Rona'),
+
+('a.ferbi@ctm.it','Maintainer','10997700','66756','Alex','Ferbi'),
+('f.berna@ctm.it','Maintainer','78654687','56566','Federico','Berna'),
+('f.canna@ctm.it','Maintainer','89798798','67666','Fabio','Canna'),
+('l.bonni@ctm.it','Maintainer','76577777','76567','Leonardo','Bonni'),
+('a.rabio@ctm.it','Maintainer','77777667','66677','Andrea','Rabio'),
+('a.mora@ctm.it','Maintainer','77766666','55554','Alvaro','Mora'),
+('g.cuadra@ctm.it','Maintainer','65454888','00885','Giovanni','Cuadra'),
+('r.benta@ctm.it','Maintainer','33336666','76665','Rodrigo','Benta'),
+('g.frabo@ctm.it','Maintainer','76877655','66559','Gianluca','Frabo'),
+('m.porta@ctm.it','Maintainer','87779900','45665','Manolo','Porta'),
+('m.deli@ctm.it','Maintainer','66556666','88779','Mattia','Deli'),
+('m.vivia@ctm.it','Maintainer','54343545','45466','Mattia','Vivia'),
+('d.spina@ctm.it','Maintainer','67535456','00998','Davide','Spina'),
+('m.sciglio@ctm.it','Maintainer','78698098','11000','Mattia','Sciglio'),
+('c.teve@ctm.it','Maintainer','65776556','67567','Carlo','Teve'),
+('c.marce@ctm.it','Maintainer','56656556','66665','Claudio','Marce');
+
+insert into documento (codice,id_utente,documento) values
+('000','56656556',null),('001','56656556',null),('020','56656556',null),
+('003','65776556',null);
+
+INSERT INTO sede (id_sede,città,via,cap,id_rep) values
+('100','Avellino','via Pedicini','83100','67457913'),
+('101','Manocalzati','via Orni','83030','54345654'),
+('102','Napoli','via dei tribunali','80138','10657342'),
+('103','Roma','Piazza Navona ','00186','03213555');
+
+INSERT INTO attivita(id_attivita, descrizione, data_inizio, data_fine, id_maint) values
+('001', 'Verifica funzionamento server', '2020-03-04', '2020-03-11','65776556'),
+('002', 'Guasto macchina dei gelati', null, '2020-06-05', '65776556');
+
+INSERT INTO procedura(id_procedura,tipo, materiale, quantita, id_repos) values
+('001', 'Elettrica', 'Ferro', '3', '54345654'),
+('002', 'Idraulica', 'Tubo', '5', '10657342'),
+('003', 'Meccanico', 'Tubo di scarico', '6', '03213555'),
+('004', 'Elettronica', 'Doppino di rame', '3', '67457913');
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO postgres;
+
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO postgres;
+
+
+select *
+from utente;
+
+select Utente.ruolo ,documento.codice
+from Utente,documento ;
+
+SELECT documento.id_utente,documento.codice,documento.documento,utente.nome,utente.cognome,utente.codice_identificativo 
+FROM documento INNER JOIN utente
+ON
+(utente.codice_identificativo = documento.id_utente AND id_utente = '65776556');
+
+select *
+from sede;
+
+select * from attivita;
+
+select * from procedura;
+
+
+
+
+
+
+
+

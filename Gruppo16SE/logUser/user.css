@@ -1,0 +1,17 @@
+
+.content{
+	margin: 140px 15px 70px 15px;
+}
+
+.content a{
+	color: blue;
+	text-decoration: underline;
+	transition: 0.2s;
+}
+.content a:hover{
+	color: #000066;
+}
+.content a:active{
+	color: #ff9999;
+}
+	

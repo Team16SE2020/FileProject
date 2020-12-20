@@ -1,0 +1,17 @@
+.footer {
+	font-family: 'Comfortaa';
+	background-color: rgba(214, 40, 60, 0.85);
+	padding: 4px;
+	color: rgba(255,255,255, 0.90);
+	text-align: center;
+	width: 100%;
+	font-size: 8pt;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 99;
+	height: 56px;
+}
+.footer p{
+	margin:3px;
+}

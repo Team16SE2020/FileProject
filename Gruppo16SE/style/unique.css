@@ -1,0 +1,62 @@
+/*Style generale*/
+* {
+  box-sizing: border-box;
+}
+
+@@font-face {
+  font-family: 'nostrofont';
+  src: url('/Gruppo16SE/fonts/LinotypeAtomatic.eot');
+  src: local('nostrofont'), local('LinotypeAtomatic'), url('/Gruppo16SE/fonts/LinotypeAtomatic.ttf') format('truetype');
+}
+
+body{
+	font-family: 'Comfortaa'
+	
+}
+
+/*Animazione colonne dei contenuti*/
+@keyframes pageFadeExpand {
+  0% {height: 0px; opacity: 0;}
+  100% {height: 700px; opacity: 1;}
+}
+
+.column {
+	display:block;
+	margin:135px 0.5% 100px 0.5%;
+	
+	opacity: 1;
+	animation-name: pageFadeExpand;
+	animation-duration: 1.3s;
+	animation-delay: 0.3s;
+	animation-fill-mode: backwards;
+	
+}
+.column.left {
+	float:left;
+	width:5%;
+}
+.column.right {
+	float:right;
+	width:5%;
+}
+.column.middle {
+	width:87%;
+	display:inline-block;
+	background-color: rgba(0,0,0, 0.50);
+	border-radius: 10pt;
+	padding: 3%;
+}
+
+/*Stile loghi dei social*/
+.social{
+	width: 5%;
+	min-width: 40px;
+	margin-left: 5px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+#loghini{
+	display: block;
+	margin:0px;
+}

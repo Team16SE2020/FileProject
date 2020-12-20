@@ -1,0 +1,78 @@
+@@font-face {
+  font-family: 'nostrofont';
+  src: url('/Gruppo16SE/fonts/LinotypeAtomatic.eot');
+  src: local('nostrofont'), local('LinotypeAtomatic'), url('/Gruppo16SE/fonts/LinotypeAtomatic.ttf') format('truetype');
+}
+
+.head{
+	min-width: 508px;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	font-family: 'Comfortaa';
+}
+.head .header h1{
+	margin:0;
+	color:black;
+	text-align: left;
+	padding: 15px 3% 15px 6%;
+	background-color: rgba(215, 215, 215, 0.80);
+	font-size: 30pt;
+	cursor: pointer;
+	transition: color 0.1s ease;
+	
+}
+
+.head .header h1:hover{
+	color: white;
+}
+
+
+/* The navbar container */
+.topnav { 
+	width:100%;
+	margin:0;
+	overflow: hidden;
+	background-color: rgba(215, 215, 215, 0.80);
+	height: 2.8em;
+	font-size: 12pt;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: rgba(0, 0, 0, 0.80);
+  text-align: center;
+  padding: 15px 2%;
+  text-decoration: none;
+}
+.topnav a.user{
+	float: right;
+}
+
+/* Links - change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a .line{
+	margin:0;
+	padding:0;
+	position: relative;
+	top: 5px;
+	transition: 0.5s;
+	opacity: 0;
+	z-index: 3;
+}
+.topnav a:hover .line{
+	opacity: 1;
+	top:-10px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  z-index:100;
+}

@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'nostrofont';
+  src: url('/Gruppo16SE/fonts/LinotypeAtomatic.eot');
+  src: local('nostrofont'), local('LinotypeAtomatic'), url('/Gruppo16SE/fonts/LinotypeAtomatic.ttf') format('truetype');
+}
+/*Animazione della navbar slo nella homepage*/
+@keyframes widthexp {
+  0% {width:0; opacity:0;}
+  100% {width: 100%; opacity:1;}
+}
+@keyframes navbarExpand {
+  0% {height: 0px; opacity:0;}
+  100% {height: 2.8em; opacity:1;}
+}
+.head .header h1{
+	opacity:0;
+	animation-name: widthexp;
+	animation-duration: 0.8s;
+	animation-delay: 0.2s;
+	animation-fill-mode: forwards;
+}
+.topnav {
+	opacity:0;
+	animation-name: navbarExpand;
+	animation-duration: 0.5s;
+	animation-delay: 1.1s;
+	animation-fill-mode: both;
+}
+
+
+/*STILE HOMEPAGE*/
+
+body {
+	background-image: url('Schermo-nero-1920x1080-1.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll; 
+	background-size: cover;
+	background-position: 0% 0%;
+	font-family: 'Comfortaa';
+	min-width: 505px;
+	overflow-x: hidden;
+}
+
+.parent{
+	width: 100%;
+	height: 500pt;
+}
+
+.maincontent {
+	display:block;
+	margin-bottom:60px;
+	text-align: center;
+	padding-top:220px;
+}
+.maincontent #LUDE{
+	width: 20%;
+	margin-bottom: 220px;
+
+}
+
+
+.contatti{
+    background-color: rgba(215, 215, 215, 0.80);
+    display: block;
+	position: relative;
+	margin-top: 100px;
+    margin-bottom: 75px;
+    border: 3px solid rgba(215, 215, 215, 0.80);
+    border-radius: 18px;
+    height: 120px;
+	overflow: hidden;
+}
+
+.contatti p{
+    margin: 2px;
+}
+
+#info{
+    display: block;
+    float: left;
+    margin-top: 4px;
+    margin-left: 4%;
+	font-size: 10pt;
+}
+
+#ludepiccolo {
+    display: block;
+    float: left;
+    margin-top: 0.8px;
+    margin-left: 2%;
+    width: 10%; 
+	min-width: 80px;
+}

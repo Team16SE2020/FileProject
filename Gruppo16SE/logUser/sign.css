@@ -1,0 +1,41 @@
+fieldset{
+	border: 3px solid #6709b7;
+	border-radius: 18px;
+	width: 510px;
+	background-color: rgba(0,0,0,0.05);
+	margin: 35px auto;
+}
+
+.header{
+	display: none;
+}
+
+.content h1{
+	text-align: center;
+}
+
+.obbligatorio{
+	font-size: 10px;
+}
+
+.button.button2 {
+	display: block;
+	margin: auto;
+	width: 500px;
+	height: 50px;
+}
+
+.error{
+	display:block;
+	height:2em;
+	color: red;
+	text-align: center;
+	margin-top: 85px;
+}
+
+.success{
+	display:block;
+	margin: 40px 30px;
+	float:left;
+	color:black;
+}
